@@ -31,74 +31,40 @@ model.add(Cropping2D(cropping=((40, 20), (0, 0))))
 
 # conv layers
 # 100 320 3
-model.add(Conv2D(filters=24, kernel_size=5, strides=(1, 1), activation='elu'))
+model.add(Conv2D(filters=24, kernel_size=5, strides=(2, 2), activation='elu'))
 model.add(BatchNormalization())
-model.add(MaxPool2D(pool_size=(2, 2)))
 # 48 158 24
-model.add(Conv2D(filters=36, kernel_size=5, strides=(1, 1), activation='elu'))
+model.add(Conv2D(filters=36, kernel_size=5, strides=(2, 2), activation='elu'))
 model.add(BatchNormalization())
-model.add(MaxPool2D(pool_size=(2, 2)))
 # 22 77 36
-model.add(Conv2D(filters=48, kernel_size=5, strides=(1, 1), activation='elu'))
+model.add(Conv2D(filters=48, kernel_size=5, strides=(2, 2), activation='elu'))
 model.add(BatchNormalization())
-model.add(MaxPool2D(pool_size=(2, 2)))
-# 9 36 48
-model.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), activation='elu'))
+# 9 37 48
+model.add(Conv2D(filters=64, kernel_size=3, strides=(1, 2), activation='elu'))
 model.add(BatchNormalization())
-# 7 34 64
-model.add(Conv2D(filters=72, kernel_size=3, strides=(1, 1), activation='elu'))
+# 7 18 64
+model.add(Conv2D(filters=80, kernel_size=3, strides=(1, 1), activation='elu'))
 model.add(BatchNormalization())
-# 5 32 72
-model.add(Conv2D(filters=72, kernel_size=3, strides=(1, 1), activation='elu'))
+# 5 16 80
+model.add(Conv2D(filters=96, kernel_size=3, strides=(1, 1), activation='elu'))
 model.add(BatchNormalization())
-# 3 30 72
+# 3 14 96
+model.add(Conv2D(filters=128, kernel_size=3, strides=(1, 1), activation='elu'))
+model.add(BatchNormalization())
+# 1 12 128
 # flatten layer
 model.add(Flatten())
-
 # fully connect layers
-# in 6480 | out 1024
-model.add(Dense(1024, activation='elu'))
+# in 1526 | out 100
+model.add(Dense(100, activation='elu'))
 model.add(Dropout(rate=drop_rate))
-# in 1024 | out 512
-model.add(Dense(512, activation='elu'))
+# in 100 | out 50
+model.add(Dense(50, activation='elu'))
 model.add(Dropout(rate=drop_rate))
-# in 512 | out 128
-model.add(Dense(128, activation='elu'))
+# in 50 | out 10
+model.add(Dense(10, activation='elu'))
 model.add(Dropout(rate=drop_rate))
-# in 128 | out 64
-model.add(Dense(64, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 64 | out 1
-model.add(Dense(1))
-
-# in 1 | out 1024
-model.add(Dense(1024, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 1024 | out 512
-model.add(Dense(512, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 512 | out 128
-model.add(Dense(128, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 128 | out 64
-model.add(Dense(64, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 64 | out 1
-model.add(Dense(1))
-
-# in 1 | out 1024
-model.add(Dense(1024, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 1024 | out 512
-model.add(Dense(512, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 512 | out 128
-model.add(Dense(128, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 128 | out 64
-model.add(Dense(64, activation='elu'))
-model.add(Dropout(rate=drop_rate))
-# in 64 | out 1
+# in 10 | out 1
 model.add(Dense(1))
 
 # create the optimizer
