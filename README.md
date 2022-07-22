@@ -100,6 +100,13 @@ Thanks to the simple structure of the model and the small size of the input, the
 It is able to drive around both track without leaving the track or collision. 
 The videos of the vehicle driving around both track are shown below. 
 
+https://user-images.githubusercontent.com/8149555/180355416-a45edef2-6481-4166-811f-81b25cf3680b.mp4
+
+https://user-images.githubusercontent.com/8149555/180355937-613429fe-5a7c-4ef8-aff7-b6176c38c825.mp4
+
+
+
+
 __NOTE__: The video is sped up 8x for ease of view. If you want to check out the origin video, they are at images/track1_origin.mp4 and images/track2_origin.mp4.
 
 
